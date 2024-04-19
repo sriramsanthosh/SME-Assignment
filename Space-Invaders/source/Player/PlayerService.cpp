@@ -65,6 +65,11 @@ namespace Player
 		player_controller->enableTrippleLaser();
 	}
 
+	void PlayerService::processBulletFire()
+	{
+		player_controller->processBulletFire();
+	}
+
 	void PlayerService::reset()
 	{
 		player_controller->reset();

@@ -200,8 +200,16 @@ namespace Player
 		if (event_service->pressedRightArrowKey() || event_service->pressedDKey()) 
 			moveRight();
 
-		//if (event_service->pressedLeftMouseButton()) 
-		//	processBulletFire();
+		if (event_service->pressedLeftMouseButton()) 
+			processBulletFire();
+			// enableTrippleLaser();
+	}
+
+	void PlayerController::processBulletFire()
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BULLET_FIRE);
+		elapsed_rapid_fire_duration = player_model->rapid_fire_powerup_duration;
+		player_model->setRapidFireState(true);
 	}
 
 	void PlayerController::moveLeft()

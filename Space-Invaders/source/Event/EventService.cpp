@@ -101,4 +101,5 @@ namespace Event
     bool EventService::pressedLeftMouseButton() { return left_mouse_button_state == ButtonState::PRESSED; }
 
     bool EventService::pressedRightMouseButton() { return right_mouse_button_state == ButtonState::PRESSED; }
+
 }

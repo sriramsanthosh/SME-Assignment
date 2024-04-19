@@ -1,8 +1,9 @@
 #pragma once
+#include "../../header/Player/PlayerController.h"
 
 namespace Player
 {
-	class PlayerController;
+	
 
 	class PlayerService
 	{
@@ -24,6 +25,7 @@ namespace Player
 		void enableShield();
 		void enableRapidFire();
 		void enableTrippleLaser();
+		void processBulletFire();
 
 		void reset();
 	};

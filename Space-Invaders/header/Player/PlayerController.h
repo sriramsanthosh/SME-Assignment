@@ -3,11 +3,38 @@
 #include "../Collision/ICollider.h"
 #include "../../header/Powerup/PowerupConfig.h"
 #include "../../header/Player/PlayerModel.h"
-#include "../../header/Player/PlayerView.h"
+#include "../../header/UI/UIElement/ImageView.h"
 
 namespace Player
 {
-    class PlayerView;
+    class PlayerView
+    {
+    private:
+        const sf::String player_texture_path = "assets/textures/player_ship.png";
+
+    	const float player_sprite_width = 60.f;
+        const float player_sprite_height = 60.f;
+
+        PlayerController* player_controller;
+        UI::UIElement::ImageView* player_image;
+
+        void createUIElements();
+        void initializeImage();
+
+        void destroy();
+
+    public:
+        PlayerView();
+        ~PlayerView();
+
+        void initialize(PlayerController* controller);
+        void update();
+        void render();
+
+        void setPlayerHighlight(bool b_highlight);
+        const sf::Sprite& getPlayerSprite();
+    };
+    
 
     class PlayerController : public Collision::ICollider
     {
@@ -57,6 +84,7 @@ namespace Player
         void enableShield();
         void enableRapidFire();
         void enableTrippleLaser();
+        void processBulletFire();
 
         sf::Vector2f getPlayerPosition();
         PlayerState getPlayerState();
